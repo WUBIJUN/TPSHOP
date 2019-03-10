@@ -20,3 +20,10 @@ class LoginPage(BaseAction):
 
     def click_login(self):
         self.click(self.login_button)
+
+    def is_login(self):
+        try:
+            self.find_toast("登录成功")
+            return True
+        except Exception as e:
+            return False
