@@ -20,3 +20,4 @@ class TestLogin(BaseAction):
         self.page.mine_page.click_login_and_sign_up()
         self.page.login_page.input_name()
         self.page.login_page.input_pw()
+        self.page.login_page.click_login()

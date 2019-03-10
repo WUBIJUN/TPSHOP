@@ -6,8 +6,9 @@ from base.base_action import BaseAction
 
 
 class LoginPage(BaseAction):
-    user_button = By.XPATH, "//*[@text='账号']"
-    pw_button = By.XPATH, "//*[@text='密码']"
+    user_button = By.ID, "com.tpshop.malls:id/mobile_et"
+    pw_button = By.ID, "com.tpshop.malls:id/pwd_et"
+    login_button = By.ID, "com.tpshop.malls:id/login_tv"
     user_word = 13830013806
     pw_word = 123456
 
@@ -15,4 +16,7 @@ class LoginPage(BaseAction):
         self.input_keyword(self.user_word, self.user_word)
 
     def input_pw(self):
-        self.click(self.pw_word, self.pw_word)
+        self.input_keyword(self.pw_word, self.pw_word)
+
+    def click_login(self):
+        self.click(self.login_button)
