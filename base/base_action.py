@@ -1,4 +1,4 @@
-import yaml
+from selenium.webdriver.common.by import By
 from selenium.webdriver.support.wait import WebDriverWait
 
 
@@ -23,6 +23,7 @@ class BaseAction:
     def input_keyword(self, feature, key_word, timeout=10.0, poll=1.0):
         self.find_element(feature, timeout, poll).send_keys(key_word)
 
-    def find_toast(self,feature, timeout, poll):
-        self.find_element(feature, timeout, poll)
+    def find_toast(self,content):
+        feature = By.XPATH, "//*[contains(@text,'" + content + "')]"
+        return self.find_element(feature, 5, 0.1).text
 
