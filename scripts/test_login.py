@@ -1,14 +1,10 @@
-import time
-
-import pytest
-
-from base.base_action import BaseAction
+import time,pytest
 from base.base_analyze import analyze_file_values
 from base.base_driver import init_driver
 from page.page import Page
 
 
-class TestLogin(BaseAction):
+class TestLogin:
     def setup(self):
         self.drive = init_driver()
         self.page = Page(self.drive)
@@ -21,7 +17,11 @@ class TestLogin(BaseAction):
     def test_login(self, phone, password, expect):
         self.page.home_page.click_mine()
         self.page.mine_page.click_login_and_sign_up()
-        self.page.login_page.input_name()
-        self.page.login_page.input_pw()
+        self.page.login_page.input_name(phone)
+        self.page.login_page.input_pw(password)
         self.page.login_page.click_login()
         assert self.page.login_page.is_login(expect)
+
+
+if __name__ == '__main__':
+    pytest.main()

@@ -1,16 +1,11 @@
-import allure
-import pytest
 from selenium.webdriver.common.by import By
-
 from base.base_action import BaseAction
 
 
 class LoginPage(BaseAction):
-    user_button = By.ID, "com.tpshop.malls:id/mobile_et"
-    pw_button = By.ID, "com.tpshop.malls:id/pwd_et"
-    login_button = By.ID, "com.tpshop.malls:id/login_tv"
-    # user_word = 13830013806
-    # pw_word = 123456
+    user_button = By.ID, "com.tpshop.malls:id/edit_phone_num"
+    pw_button = By.ID, "com.tpshop.malls:id/edit_password"
+    login_button = By.ID, "com.tpshop.malls:id/btn_login"
 
     def input_name(self,text):
         self.input_keyword(self.user_button, text)
