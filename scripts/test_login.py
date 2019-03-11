@@ -22,6 +22,15 @@ class TestLogin:
         self.page.login_page.click_login()
         assert self.page.login_page.is_login(expect)
 
+    @pytest.mark.parametrize(("phone", "password"), analyze_file_values("login_data", "test_login_null"))
+    def test_login_null(self, phone, password, expect):
+        self.page.home_page.click_mine()
+        self.page.mine_page.click_login_and_sign_up()
+        self.page.login_page.input_name(phone)
+        self.page.login_page.input_pw(password)
+        self.page.login_page.click_login()
+        assert not self.page.login_page.is_enabled()
+
 
 if __name__ == '__main__':
     pytest.main()
