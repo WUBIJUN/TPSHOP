@@ -7,7 +7,7 @@ def analyze_file_values(file_path, data_title):
         data = yaml.load(f)
         data_list = list()
         for i in data[data_title].values():
-            data_list.append(list(i.values()))
+            data_list.append(i)
         return data_list
 
 
@@ -17,5 +17,5 @@ def analyze_file_keys(file_path, data_title):
         data = yaml.load(f)
         keys_list = list()
         for i in data[data_title].values():
-            keys_list.append(list(i.keys()))
+            keys_list.append(i)
         return keys_list

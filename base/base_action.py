@@ -57,6 +57,7 @@ class BaseAction:
             self.driver.swipe(right_x, right_y, left_x, left_y)
         else:
             raise Exception("请传入正确参数 up/down/left/right")
+
     def scroll_find_ele(self,feature,dir="down"):
         """
         边划边找
@@ -66,8 +67,8 @@ class BaseAction:
         while True:
             page_source = self.driver.page_source
             try:
-                return self.find_element(feature,)
+                return self.find_element(feature)
             except Exception:
-               self.scorll_page_time(dir="down")
+                self.scorll_page_time(dir="down")
                 if page_source == self.driver.page_source:
                     raise Exception("滑动已到最后")
