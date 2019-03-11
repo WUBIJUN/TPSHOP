@@ -21,13 +21,13 @@ class LoginPage(BaseAction):
         self.click(self.login_button)
 
     @allure.step(title='登录成功判定')
-    def is_login(self, expect):
+    def is_login_success(self, expect):
         try:
             self.find_toast(expect)
             return True
         except Exception as e:
             return False
 
-    @allure.step(title='登录成功')
+    @allure.step(title='点击登录按钮')
     def is_enabled(self):
         return self.find_element(self.login_button).get_attribute('enabled')=='true'
